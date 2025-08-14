@@ -1,0 +1,10 @@
+import runpod
+
+def handler(job):
+    # "job" ist ein Dictionary mit allen Daten, die der Endpoint bekommt
+    # Wir holen uns hier den Namen aus der Eingabe oder nehmen "World" als Standard
+    name = job["input"].get("name", "World")
+    return {"message": f"Hello, {name}!"}
+
+# Startet den Serverless-Handler bei RunPod
+runpod.serverless.start({"handler": handler})
